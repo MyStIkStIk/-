@@ -11,5 +11,21 @@ namespace Проект_компании
         Employee sotrudnik;
         string nazvanieDoljnosti;
         decimal zarplata;
+        public decimal Zarplata
+        {
+            get { return zarplata; }
+        }
+        public Post(string imya, string familia, string nazvanieDoljnosti, decimal zarplata)
+        {
+            this.sotrudnik = new Employee(familia, imya);
+            this.nazvanieDoljnosti = nazvanieDoljnosti;
+            this.zarplata = zarplata;
+        }
+        public void ReturnInfo()
+        {
+            sotrudnik.ReturnInfo();
+            Console.WriteLine(nazvanieDoljnosti);
+            Console.WriteLine(zarplata);
+        }
     }
 }

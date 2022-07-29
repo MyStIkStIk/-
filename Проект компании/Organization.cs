@@ -8,7 +8,7 @@ namespace Проект_компании
 {
     public class Organization
     {
-        Post[] doljnosti;
+        public Post[] doljnosti;
         string nameOrganization;
         decimal budjet;
         public Organization(string nameOrganization, decimal budjet)
@@ -16,13 +16,38 @@ namespace Проект_компании
             this.nameOrganization = nameOrganization;
             this.budjet = budjet;
         }
-        public void VuplataZarplat()
+        void VuplataZarplat()
         {
-
+            for (int i = 0; i < doljnosti.Length; i++)
+            {
+                budjet -= (doljnosti[i].Zarplata * 1.185M);
+            }
         }
-        public int RabotaMesac(string project)
+        public void RabotaMesac(string project)
         {
-            return 0;
+            if (project == "new app")
+            {
+                VuplataZarplat();
+                budjet += 50000;
+                Console.WriteLine(budjet);
+            }
+            else if (project == "new PO")
+            {
+                VuplataZarplat();
+                budjet -= 10000;
+                Console.WriteLine(budjet);
+            }
+            else if (project == "correct PO")
+            {
+                VuplataZarplat();
+                budjet -= 5000;
+                Console.WriteLine(budjet);
+            }
+            else
+            {
+                VuplataZarplat();
+                Console.WriteLine($"Некорректная задача, весь месяц пинали..., остаток бюджета {budjet}");
+            }
         }
 
     }

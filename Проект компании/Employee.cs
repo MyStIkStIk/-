@@ -17,7 +17,8 @@ namespace Проект_компании
         }
         public void ReturnInfo()
         {
-
+            Console.WriteLine(imya);
+            Console.WriteLine(familia);
         }
     }
 }
