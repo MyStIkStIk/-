@@ -15,7 +15,7 @@ namespace Проект_компании
             this.familia = familia;
             this.imya = imya;
         }
-        public void ReturnInfo()
+        void ReturnInfo()
         {
             Console.WriteLine(imya);
             Console.WriteLine(familia);
